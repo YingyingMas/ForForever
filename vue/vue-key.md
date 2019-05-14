@@ -3,10 +3,10 @@
 >完整地触发组件的生命周期钩子
 >触发过渡
 
-(```)
+```
 <transition>
   <span :key="text">{{ text }}</span>
 </transition>
-(```)
+```
 
 >当 text 发生改变时，<span> 会随时被更新，因此会触发过渡。
