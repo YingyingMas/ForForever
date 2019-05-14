@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    #light {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    #light.green {
+      background-color: green;
+    }
+
+    #light.yellow {
+      background-color: yellow;
+    }
+
+    #light.red {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="light"></div>
+
+  <script>
+    const lightThing = document.getElementById('light');
+
+    window.onload = function () {
+      turnover();
+      setInterval(() => turnover(), 6000);
+    }
+
+    function turnover() {
+      setTimeout(() => {
+        lightThing.className = 'green';
+        setTimeout(() => {
+          lightThing.className = 'yellow';
+          setTimeout(() => {
+            lightThing.className = 'red';
+          }, 1000);
+        }, 3000);
+      }, 0);
+    }
+  </script>
+</body>
+
+</html>
