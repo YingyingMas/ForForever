@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  统计一个字符串出现最多的字母
+    //  给出一段英文连续的英文字符窜，找出重复出现次数最多的字母
+    //  输入 ： afjghdfraaaasdenas 
+    //  输出 ： a
+    let findMaxDuplicateChar = (str = '') => {
+      if (str.length <= 1) return str;
+      let obj = {};
+      for (let i = 0; i < str.length; i++){
+        if (!obj[str[i]]) {
+          obj[str[i]] = 1;
+        } else {
+          obj[str[i]] += 1;
+        }
+      }
+      let max = 0;
+      let key = '';
+      for (let name in obj){
+        if(obj[name] > max){
+          max = obj[name];
+          key = name;
+        }
+      }
+      return key
+    }
+    console.log(findMaxDuplicateChar('afjghdfraaaasdenas'))
+  </script>
+</body>
+
+</html>

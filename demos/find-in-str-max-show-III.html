@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    getMaxText('fdyatwvBNDmmwejhwjkwmekjksjdasjnjjhjw');
+
+    function getMaxText(str) {
+      let filterObj = {};
+      let splitPreStr = str.split('');
+      let maxNum = 0;
+      let maxObj = {};
+
+      splitPreStr.forEach((value, index) => {
+        if (filterObj.hasOwnProperty(splitPreStr[index])) {
+          filterObj[splitPreStr[index]]+= 1;
+        } else {
+          filterObj[splitPreStr[index]] = 1;
+        }
+      });
+       
+      for (const item in filterObj) {
+        if (filterObj.hasOwnProperty(item)) {
+          const element = filterObj[item];
+          if (filterObj[item] > maxNum) {
+            maxNum = filterObj[item];
+            maxObj = {
+              maxWord: item,
+              maxNum: filterObj[item]
+            }
+          }
+        }
+      }
+      console.log(maxObj);
+    }
+  </script>
+</body>
+
+</html>
