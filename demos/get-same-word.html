@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>取到前几位相同的部分</title>
+
+  <style>
+    #light {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    #light.green {
+      background-color: green;
+    }
+
+    #light.yellow {
+      background-color: yellow;
+    }
+
+    #light.red {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+<div id="light"></div>
+
+<script>
+  window.onload = function () {
+    //写一个方法，取到前几位相同的部分 ["105602YXBS", "105602YWZJ", "105602SMTJ", "105602JDCX", "105602BZPT", "105602BZCX"]  期望输出： 105602
+    let a = ["105602YXBS", "105602YWZJ", "105602SMTJ", "105602JDCX", "105602BZPT", "105602BZCX"];
+    let b = [];
+    let c = [];
+    let d = [];
+    let res = '';
+    a.forEach((e) => {
+      b.push([...e]);
+    })
+    b.forEach((e, i) => {
+      e.forEach((e2, i2) => {
+        if (i === 0) {
+          c.push([e2]);
+        } else {
+          c[i2].push(e2);
+        }
+      })
+    })
+    c.forEach((e) => {
+      d.push(Array.from(new Set(e)));
+    })
+    for (var i = 0; i < d.length; i++) {
+      if (d[i].length > 1) {
+        break;
+      }else {
+        res +=d[i][0]
+      }
+    }
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(res);
+  }
+</script>
+</body>
+
+</html>

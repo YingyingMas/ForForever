@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>取到前几位相同的部分</title>
+
+  <style>
+    #light {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    #light.green {
+      background-color: green;
+    }
+
+    #light.yellow {
+      background-color: yellow;
+    }
+
+    #light.red {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+<div id="light"></div>
+
+<script>
+  window.onload = function () {
+    //写一个方法，取到前几位相同的部分 ["105602YXBS", "105602YWZJ", "105602SMTJ", "105602JDCX", "105602BZPT", "105602BZCX"]  期望输出： 105602
+    let arr = ["105602YXBS", "105602YWZJ", "105602YMTJ", "105602YDCX", "105602YZPT", "105602YZCX"];
+    function name(array = []) {
+      if(!array.length) return '';
+      let detailArray = array.map(item => [...item]);
+      let newArray = [];
+      let endIndex = 0;
+      let firstItem = array[0];
+      detailArray.forEach(element => {
+        element.forEach((str, i) => {
+          if(!newArray[i]) newArray[i] = [];
+          newArray[i].push(str);
+        });
+      })
+      for (let index = 0; index < newArray.length; index++) {
+        const element = newArray[index];
+        const last = [...new Set(element)];
+        if(last.length > 1) {
+          endIndex = index;
+          break;
+        }
+      }
+      return firstItem.slice(0, endIndex);
+    }
+    console.log(name(arr))
+  }
+</script>
+</body>
+
+</html>
