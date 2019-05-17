@@ -20,14 +20,22 @@ npm start
 - npm run build：打包编译；
 - npm run eject：导出可配置的模板，可自定义修改配置，已上传项目Mars-eject。
 
+
 ##### npm run eject 前
+
 ![](images/before-eject.png)
+
+
 ##### npm run eject 中
+
 ![](images/eject-one.png)
 ![](images/eject-two.png)
 ![](images/eject-three.png)
 ![](images/eject-four.png)
+
+
 ##### npm run eject 后
+
 ![](images/after-eject.png)
 
 
