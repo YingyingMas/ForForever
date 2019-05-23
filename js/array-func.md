@@ -1,20 +1,16 @@
 # 数组方法
 ------
-
 #### **# push(element, ...)**
 > * `参数`：
          element：
          ...：
 > * `用法`：
         向数组的末尾添加一个或多个元素，并返回新的长度。
-
 ```
-
 let arr = new Array('George', 'John', 'Thomas');
 console.log(arr);               // ['George', 'John', 'Thomas']
 console.log(arr.push('James')); // 4   arr 的新长度
 console.log(arr);               // ['George', 'John', 'Thomas', 'James']
-
 ```
 #### **# pop()**
 > * `参数`：
