@@ -7,12 +7,15 @@
          ...：
 > * `用法`：
         向数组的末尾添加一个或多个元素，并返回新的长度。
-> ```javascript
+
+```
+
 let arr = new Array('George', 'John', 'Thomas');
 console.log(arr);               // ['George', 'John', 'Thomas']
 console.log(arr.push('James')); // 4   arr 的新长度
 console.log(arr);               // ['George', 'John', 'Thomas', 'James']
-> ```
+
+```
 #### **# pop()**
 > * `参数`：
         无
