@@ -48,9 +48,9 @@ console.log(arr);                       // ['William', 'George', 'John', 'Thomas
 ```
 #### **# forEach(function(currentValue, index, arr), thisValue)**
 > * `参数`：
-         currentValue：数组中正在处理的当前元素。
-         index：数组中正在处理的当前元素的索引。
-         arr：forEach() 方法正在操作的数组。
+         currentValue：数组中正在处理的当前元素。   
+         index：数组中正在处理的当前元素的索引。   
+         arr：forEach() 方法正在操作的数组。   
          thisValue：当执行回调函数时用作 this 的值(参考对象)。
 > * `用法`：
         forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数，forEach() 对于空数组是不会执行回调函数的。
