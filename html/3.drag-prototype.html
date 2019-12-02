@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    div{
+      text-align: center;
+      line-height: 100px;
+      font-size: 24px;
+      color: #f57d00;
+    }
+    #div1{
+      width: 100px;
+      height: 100px;
+      position:absolute;
+      background: red;
+      border-radius: 24px;
+    }
+    #div2{
+      width: 100px;
+      height: 100px;
+      position:absolute;
+      left: 200px;
+      background:yellow;
+      border-radius: 24px;
+    }
+  </style>
+
+  <script>
+    window.onload = function (){
+      var div1 = new Drag('div1');
+      div1.init();
+      var div2 = new ChildDrag('div2');
+      div2.init();
+    }
+    function Drag(id){//父类
+      this.obj = document.getElementById(id);
+      this.disX = 0;
+      this.disY = 0;
+    }
+    Drag.prototype.init = function(){
+      var This = this;
+      this.obj.onmousedown = function(ev){
+        var ev = ev || window.event;
+        This.fnDown(ev);
+        document.onmousemove=function(ev){
+          var ev = ev || window.event;
+          This.fnMove(ev);
+        }
+        document.onmouseup=function(){
+          This.fnUp();
+        }
+        return false;
+      }
+    }
+    Drag.prototype.fnDown = function (ev){
+      this.disX = ev.clientX - this.obj.offsetLeft;
+      this.disY = ev.clientY - this.obj.offsetTop;
+    }
+    Drag.prototype.fnMove = function (ev){
+      this.obj.style.left = ev.clientX- this.disX +'px';
+      this.obj.style.top = ev.clientY - this.disY +'px';
+    }
+    Drag.prototype.fnUp = function (){
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+    function ChildDrag(id){
+      Drag.call(this,id);
+      this.color = null;
+    }
+    extent(ChildDrag.prototype,Drag.prototype);
+    ChildDrag.prototype.fnDown = function(ev){
+      this.color = this.obj.style.backgroundColor;
+      this.obj.style.backgroundColor = 'black';
+      this.obj.innerHTML= this.obj.style.backgroundColor;
+      this.disX = ev.clientX-this.obj.offsetLeft;
+      this.disY = ev.clientY - this.obj.offsetTop;
+    }
+    ChildDrag.prototype.fnMove = function(ev){
+      this.obj.style.backgroundColor = 'green';
+      this.obj.innerHTML= this.obj.style.backgroundColor;
+      var l = ev.clientX- this.disX;
+      var t =  ev.clientY - this.disY;
+      if(l < 0){
+        l =0;
+      }else if(l >= document.documentElement.clientWidth - this.obj.offsetWidth){
+        l = document.documentElement.clientWidth - this.obj.offsetWidth;
+      }
+      if(t < 0){
+        t =0;
+      }else if(t >= document.documentElement.clientHeight - this.obj.offsetHeight){
+        t = document.documentElement.clientHeight - this.obj.offsetHeight;
+      }
+      this.obj.style.left = l +'px';
+      this.obj.style.top = t+'px';
+    }
+    ChildDrag.prototype.fnUp = function(){
+      this.obj.style.backgroundColor = this.color;
+      this.obj.innerHTML= 2;
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+    function extent(obj1,obj2){
+      for(var attr in obj2){
+        obj1[attr] = obj2[attr]
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="div1">1</div>
+<div id="div2">2</div>
+</body>
+</html>
