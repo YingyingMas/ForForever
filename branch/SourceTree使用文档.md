@@ -22,7 +22,7 @@ SourceTree下载地址：https://www.sourcetreeapp.com/ 或者 https://www.sourc
 <br/>
 
 请按照[sourcetree跳过注册的方法](https://www.cnblogs.com/lucio110/p/8192792.html)操作，完成安装。
-
+请按照[sourcetree跳过注册的方法](https://blog.csdn.net/weixin_41394654/article/details/104726290)操作，完成安装。
 
 ## SourceTree使用方法
 
