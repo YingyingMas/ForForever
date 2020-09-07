@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <style>
-    body,html{
+    body, html {
         padding: 0;
         margin: 0;
     }
+
     .user-spare-room {
         height: 100%;
         padding-bottom: 140px;
@@ -21,6 +22,7 @@
 
     .user-spare-room * {
         font-family: PingFangSC-Regular;
+        font-size: 12px;
     }
 
     .user-spare-room .load-list {
@@ -95,6 +97,7 @@
         top: 71px;
         left: 0;
         z-index: 2;
+        margin-top: -89px;
     }
 
     .user-spare-room .spare-room-list .tab-box-fixed {
@@ -436,20 +439,28 @@
 <body>
 <script>
     window.onload = function () {
-        this.topInfoHeight = document.querySelector(".user-spare-room .passenger-info").clientHeight + 20;
+        var ios = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        var spareListNav = document.querySelector(".list-nav");
+        var topInfoHeight = document.querySelector(".user-spare-room .passenger-info").clientHeight + 20;
         window.addEventListener("scroll", () => {
             let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
             let scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             this.scrollTop = scrollTop;
             //列表nav滚动吸顶---未兼容ios
-            var spareListNav = document.querySelector(".list-nav");
-            if (this.topInfoHeight < scrollTop) {
-                spareListNav.setAttribute("class", "list-nav tab-box-fixed");
-            } else {
-                spareListNav.setAttribute("class", "list-nav");
+            if (!ios) {
+                console.log('安卓')
+                if (topInfoHeight < scrollTop) {
+                    spareListNav.setAttribute("class", "list-nav tab-box-fixed");
+                } else {
+                    spareListNav.setAttribute("class", "list-nav");
+                }
             }
         });
+        if (ios) {
+            console.log('ios')
+            spareListNav.setAttribute("class", "list-nav tab-box-sticky");
+        }
     }
 </script>
 </body>
