@@ -441,6 +441,7 @@
     window.onload = function () {
         var ios = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         var spareListNav = document.querySelector(".list-nav");
+        alert('ios' + ios);
         var topInfoHeight = document.querySelector(".user-spare-room .passenger-info").clientHeight + 20;
         window.addEventListener("scroll", () => {
             let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
@@ -449,7 +450,7 @@
             this.scrollTop = scrollTop;
             //列表nav滚动吸顶---未兼容ios
             if (!ios) {
-                console.log('安卓')
+               
                 if (topInfoHeight < scrollTop) {
                     spareListNav.setAttribute("class", "list-nav tab-box-fixed");
                 } else {
@@ -458,7 +459,6 @@
             }
         });
         if (ios) {
-            alert('ios')
             spareListNav.setAttribute("class", "list-nav tab-box-sticky");
         }
     }
