@@ -438,9 +438,11 @@
 </div>
 <body>
 <script>
+    alert(navigator.userAgent + 1);
     window.onload = function () {
         var ios = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         var spareListNav = document.querySelector(".list-nav");
+        alert(navigator.userAgent + 2);
         alert('ios' + ios);
         var topInfoHeight = document.querySelector(".user-spare-room .passenger-info").clientHeight + 20;
         window.addEventListener("scroll", () => {
