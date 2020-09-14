@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<style>
+ .check-type {
+      width: 32px;
+      height: 32px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      position: absolute;
+      border:none;
+      left: 40px;
+      top: 30px;
+    }
+
+    .check-type:before {
+      content: '';
+      width: 32px;
+      height: 32px;
+      border: 1px solid #DDDDDD;
+      display: inline-block;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    .check-type:checked:before {
+      content: '';
+      width: 32px;
+      height: 32px;
+      border: 1px solid #3DBCC6;
+      background: #3DBCC6;
+      display: inline-block;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    .check-type:checked:after {
+      content: '';
+      width: 16px;
+      height: 11px;
+      border: 2px solid white;
+      border-top: transparent;
+      border-right: transparent;
+      text-align: center;
+      display: block;
+      position: absolute;
+      top: 7px;
+      left: 8px;
+      vertical-align: middle;
+      transform: rotate(-45deg);
+    }
+
+    .check-type:checked + label {
+      color: #c59c5a;
+    }
+    .info {
+        position:relative;
+    }
+</style>
+
+<label for="radio2">
+  <input class="check-type" type="checkbox" name="type" id="radio2" /> 
+ </label>
+<body>
+</body>
+
+</html>
