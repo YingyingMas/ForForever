@@ -1,12 +1,27 @@
 
-IP：ifconfig
+查看IP：
+    ifconfig
 
-ls -l 文件/目录
+查看当前文件/目录：
+    ls -l 
 
-显示隐藏文件
-defaults write com.apple.finder AppleShowAllFiles Yes && killall Finder
-不显示隐藏文件 
-defaults write com.apple.finder AppleShowAllFiles No && killall Finder
+显示隐藏文件：
+    defaults write com.apple.finder AppleShowAllFiles Yes && killall Finder
+
+不显示隐藏文件:
+    defaults write com.apple.finder AppleShowAllFiles No && killall Finder
+
+显示当前目录:
+    pwd
+
+创建文件夹：
+    mkdir demo
+
+创建文件：
+    touch demo.js
+
+查看当前文件夹里的所有文件（包括隐藏文件）：
+    ls -ah
 
 
 sudo xcode-select --switch /Users/dk/Downloads/Xcode.app/Contents/Developer
