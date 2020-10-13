@@ -20,6 +20,9 @@
 创建文件：
     touch demo.js
 
+删除文件：
+    rm demo.js
+
 查看当前文件夹里的所有文件（包括隐藏文件）：
     ls -ah
 
