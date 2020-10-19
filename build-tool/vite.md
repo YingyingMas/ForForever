@@ -1,10 +1,5 @@
-1. 由原生 ESM 驱动
-2. 基于浏览器原生 ES imports 开发
-3. 在服务器端按需编译返回，完全跳过了打包这个概念
-4. 在生产环境下基于 Rollup 打包
-   
 
-### run up
+### vite run up
 
 1. 开始我的第一个vite应用： npm init vite-app my-first-vite-app
     
@@ -40,4 +35,26 @@
    3. git commit -m "init"
    4. 在GitHub上面创一个空的仓库
    5. git remote add origin git@github.com:YingyingMas/my-first-vite-app.git
-   6. git push -u origin master
+   6. git push -u origin 
+   
+
+
+### 回想一下webpack
+1.  webpack 使用 map 存放模块 id 和路径，使用 webpack_require 方法获取模块导出，
+2. 不管某个模块的代码是否执行到，这个模块都要打包到 bundle 里，
+3. 随着项目越来越大打包后的 bundle 也越来越大。
+
+
+
+### vite
+
+1. ESM
+   1. script module 是 ES 模块在浏览器端的实现，
+   2. 在浏览器端使用 export、import 的方式导入和导出模块，
+   3. 浏览器将对其内部的 import 引用发起 http 请求获取模块内容，
+   4. 省略了对模块的组装，不需要生成 bundle，
+   5. ESM 天生按需加载，只有 import 的时候才会去按需加载。
+2. 提供 web server，借用 koa 启动服务
+```
+  <script type="module" src="/src/main.js"></script>
+```
