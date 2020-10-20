@@ -48,13 +48,27 @@
 
 ### vite
 
-1. ESM
-   1. script module 是 ES 模块在浏览器端的实现，
-   2. 在浏览器端使用 export、import 的方式导入和导出模块，
-   3. 浏览器将对其内部的 import 引用发起 http 请求获取模块内容，
-   4. 省略了对模块的组装，不需要生成 bundle，
-   5. ESM 天生按需加载，只有 import 的时候才会去按需加载。
+1. ESM```<script type="module" src="/src/main.js"></script>```
+   - script module 是 ES 模块在浏览器端的实现，
+   - 在浏览器端使用 export、import 的方式导入和导出模块，
+   - 浏览器将对其内部的 import 引用发起 http 请求获取模块内容，
+   - 省略了对模块的组装，不需要生成 bundle，
+   - ESM 天生按需加载，只有 import 的时候才会去按需加载。
+   
 2. 提供 web server，借用 koa 启动服务
-```
-  <script type="module" src="/src/main.js"></script>
-```
+   
+3. 拦截浏览器对模块的请求并返回处理后的结果
+   
+    以往引用 node_modules 模块使用import xxx from 'xxx'，由 Webpack 等工具找到模块的具体路径进行打包。
+    但浏览器不知道项目里有 node_modules，只能通过相对路径或绝对路径查找。
+
+    vite：
+    - 在 koa 中间件里获取请求体，
+    - 通过 es-module-lexer 解析 import 内容
+    - 将 import 的资源为绝对路径的视为 npm 模块
+    - ```import { createApp } from 'vue'```变为```import { createApp } from '/@modules/vue.js'```
+    - 判断路径是否以 /@module/ 开头
+    - 去node_module找到这个库
+
+4. 编译vue、css、ts等文件
+   - vite 拦截对模块的请求并执行实时编译。 
