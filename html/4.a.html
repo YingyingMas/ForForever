@@ -1,120 +1,123 @@
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 <style>
-    span {
-        width: 100px;
-        height: 20px;
-        border: 1px solid red;
-        position: absolute;
-    }
+  span {
+    width: 100px;
+    height: 20px;
+    border: 1px solid red;
+    position: absolute;
+  }
 
-    div {
-        margin-bottom: 20px;
-    }
+  div {
+    margin-bottom: 20px;
+  }
 
-    .cute {
-        width: 1000px;
-        height: 3000px;
-        position: relative;
-    }
+  .cute {
+    width: 1000px;
+    height: 3000px;
+    position: relative;
+  }
 
-    #one {
-        left: 10px;
-        top: 10px;
-        /*display: none;*/
-        visibility: hidden;
-    }
+  #one {
+    left: 10px;
+    top: 10px;
+    /*display: none;*/
+    visibility: hidden;
+  }
 
-    #one i {
-        visibility: visible;
-    }
+  #one i {
+    visibility: visible;
+  }
 
-    #two {
-        left: 30px;
-        top: 200px;
-    }
+  #two {
+    left: 30px;
+    top: 200px;
+  }
 
-    #three {
-        top: 400px;
-    }
+  #three {
+    top: 400px;
+  }
 
-    #four {
-        top: 1000px;
-    }
+  #four {
+    top: 1000px;
+  }
 
-    #five {
-        top: 1400px;
-    }
+  #five {
+    top: 1400px;
+  }
 
-    select {
-        width: 100px;
-    }
+  select {
+    width: 100px;
+  }
 </style>
+
 <body>
-<ul type="square">
+  <ul type="square">
     <li contentEditable="true">2</li>
     <li>1</li>
     <li>1</li>
     <li>1</li>
     <li>1</li>
     <li>1</li>
-</ul>
-<div>
+  </ul>
+  <div>
     <select name="" id="" multiple="multiple">
-        <option value="1">1111111111111111</option>
-        <option value="2" selected="selected">2222222222222222</option>
+      <option value="1">1111111111111111</option>
+      <option value="2" selected="selected">2222222222222222</option>
     </select>
     <select name="" id="">
-        <option value="1">1111111111111111</option>
-        <option value="2" selected="selected">2222222222222222</option>
+      <option value="1">1111111111111111</option>
+      <option value="2" selected="selected">2222222222222222</option>
     </select>
-</div>
+  </div>
 
-<div>
+  <div>
     <textarea name="" id="" cols="30" rows="10"></textarea>
-</div>
+  </div>
 
-<div id="xunlei">
-</div>
-<script src="a.js"></script>
+  <div id="xunlei">
+  </div>
+  <script src="a.js"></script>
 
-<a href="#one" target="_blank">1</a>
-<a href="#two">2</a>
-<a href="#three">3</a>
-<a href="#four">4</a>
-<a href="#five">5</a>
-h<sub>2</sub>o
-<div class="cute">
+  <a href="#one" target="_blank">1</a>
+  <a href="#two">2</a>
+  <a href="#three">3</a>
+  <a href="#four">4</a>
+  <a href="#five">5</a>
+  h<sub>2</sub>o
+  <div class="cute">
     <span id="one">1 <i>11</i></span>
     <span id="two">2</span>
     <span id="three">3</span>
     <span id="four">4</span>
     <span id="five">5</span>
-</div>
+  </div>
 </body>
 <script>
-// debugger;
-var n1 = 11;
-var n2 = n1++;
-console.log(n1);
-console.log(n2);
+  // debugger;
+  var n1 = 11;
+  var n2 = n1++;
+  console.log(n1);
+  console.log(n2);
 
-var m1 = 11;
-var m2 = ++m1;
-console.log(m1);
-console.log(m2);
+  var m1 = 11;
+  var m2 = ++m1;
+  console.log(m1);
+  console.log(m2);
 
-var dom = document.querySelectorAll('#xunlei .down-title a');
-var s = '';
-for (var i = 0; i <= dom.length-1; i++ ) {
-  s = s + dom[i].getAttribute('href') + '\n';
-}
-console.log(s);
+  var dom = document.querySelectorAll('#xunlei .down-title a');
+  var s = '';
+  for (var i = 0; i <= dom.length - 1; i++) {
+    s = s + dom[i].getAttribute('href') + '\n';
+  }
+  console.log(s);
 </script>
+
 </html>
